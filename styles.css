@@ -1,0 +1,370 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+h2{
+    font-size: 2em;
+    margin: 10px 0px;
+}
+
+/* Base Styles */
+nav {
+    position: fixed;
+    width: 100%;
+    right: 1px;
+    background-color: #0A74DA;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    align-items: center;
+    justify-content: space-between; /* Updated */
+    padding: 10px 20px;
+    z-index: 10;
+}
+
+nav div.logo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Burger Icon */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.burger div {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Media Query for screen size 768px and below */
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 75px;
+        right: 0;
+        height: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #0A74DA;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+
+    nav ul li {
+        opacity: 0;
+        margin: 10px 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* When nav is open */
+    nav ul.open {
+        height: 200px;
+    }
+
+    nav ul.open li {
+        opacity: 1;
+    }
+
+    /* Burger menu */
+    .burger {
+        display: flex;
+    }
+
+    /* Rotate the burger lines when clicked */
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Hero Section Base Styling */
+.hero {
+    width: 100%;
+    height: 800px; /* Adjusted height as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%; /* Ensures each slide takes up 100% width of the slider */
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adjusted to cover the entire slide */
+}
+
+/* Full width for sections */
+section {
+    width: 100%;
+    padding: 0px 50px;
+    text-align: center;
+}
+
+.dashboard .content, .voting .content, .service-tracker .content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Progress Bars in Dashboard Section */
+.dashboard-section {
+    width: 100%;
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.dashboard-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.service-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.service {
+    flex: 1;
+    min-width: 400px;
+    max-width: 33%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.service h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.dashboard-criteria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.dashboard-criteria p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.progress-bar {
+    position: relative;
+    width: 75%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-bar .progress {
+    height: 20px;
+    border-radius: 8px;
+    transition: width 0.4s ease;
+}
+
+.progress-bar span {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Blockchain Voting Section */
+.voting .content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.voting-card {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+
+.voting-card img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.voting-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.voting-card .cta-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Service Tracker Section */
+.service-tracker{
+    height: 400px;
+}
+
+.service-tracker h2{
+    margin: 10px 0px;
+}
+.service-tracker .content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%
+}
+
+.service-tracker .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-tracker img{
+    height: 100px;
+    width: 100px;
+}
+.service-tracker .graphic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 100%;
+}
+
+footer {
+    background-color: #0A74DA;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Chatbot */
+#chatbot {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    border: 2px solid #0A74DA;
+    border-radius: 10px;
+    display: none;
+}
+
+#chatbot-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-body {
+    padding: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#chatbot-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+#chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#chatbot-icon {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    background-color: #0A74DA;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
